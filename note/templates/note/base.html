@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="{% static 'css/output.css' %}" />
+
+    <title>{% block title %}Notes App{% endblock %}</title>
+</head>
+
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    {% include 'note/includes/navbar.html' %}
+
+    <!-- Messages (GLOBAL - BEST PRACTICE) -->
+    {% if messages %}
+        <div class="max-w-5xl mx-auto w-full px-4 mt-4 space-y-2">
+            {% for message in messages %}
+                <div class="px-4 py-3 rounded-lg shadow-sm text-sm border
+                    {% if message.tags == 'success' %}
+                        bg-green-100 text-green-700 border-green-300
+                    {% elif message.tags == 'error' %}
+                        bg-red-100 text-red-700 border-red-300
+                    {% else %}
+                        bg-gray-100 text-gray-700 border-gray-300
+                    {% endif %}
+                ">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Page Content -->
+    <main class="flex-1">
+        <div class="max-w-6xl mx-auto w-full px-4 py-6">
+
+            {% block content %}
+            <div class="text-center text-gray-500 mt-10">
+                Notes Display here.
+            </div>
+            {% endblock %}
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto">
+        {% include 'note/includes/footer.html' %}
+    </footer>
+
+</body>
+</html>
