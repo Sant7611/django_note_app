@@ -1,0 +1,76 @@
+{% extends "../note/base.html" %}
+
+{% block content %}
+
+{% comment %} {% if messages %}
+<div class="max-w-5xl mx-auto w-full px-4 mt-4 space-y-2">
+    {% for message in messages %}
+        <div class="px-4 py-3 rounded-lg shadow-sm text-sm border
+            {% if message.tags == 'success' %}
+                bg-green-100 text-green-700 border-green-300
+            {% elif message.tags == 'error' %}
+                bg-red-100 text-red-700 border-red-300
+            {% else %}
+                bg-gray-100 text-gray-700 border-gray-300
+            {% endif %}
+        ">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+{% endif %} {% endcomment %}
+<div class="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+
+        <!-- Title -->
+        <h2 class="text-2xl font-bold text-gray-800 text-center mb-6">
+            Login
+        </h2>
+
+        <form method="post" class="space-y-5">
+            {% csrf_token %}
+
+            <!-- Username -->
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-600 mb-1">
+                    Username
+                </label>
+                <input 
+                    type="text" 
+                    name="username" 
+                    id="username"
+                    class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter your username"
+                    required
+                >
+            </div>
+
+            <!-- Password -->
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-600 mb-1">
+                    Password
+                </label>
+                <input 
+                    type="password" 
+                    name="password" 
+                    id="password"
+                    class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter your password"
+                    required
+                >
+            </div>
+
+            <!-- Submit -->
+            <button type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-black font-semibold py-2.5 rounded-lg transition duration-200">
+                Login
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="O:\Skill Shikshya\django tutorial\NotesApp\venv"
+VIRTUAL_ENV="O:\Skill Shikshya\Django projects\NotesApp\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
