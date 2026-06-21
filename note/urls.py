@@ -8,3 +8,5 @@ urlpatterns=[
     path('edit/<int:pk>/', views.notes_edit, name='notes_edit'),
     path('details/<int:pk>/', views.notes_detail, name='notes_detail'),
 ]
+
+

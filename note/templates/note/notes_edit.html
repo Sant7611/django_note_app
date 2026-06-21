@@ -34,7 +34,7 @@
         </h1>
 
         <!-- Form -->
-        <form method="post" class="space-y-6">
+        <form method="post" class="space-y-6" enctype="multipart/form-data">
             {% csrf_token %}
 
             <!-- Title -->
@@ -51,6 +51,14 @@
                     Description
                 </label>
                 {{ form.description }}
+            </div>
+
+            <!-- Image -->
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                    Image
+                </label>
+                {{ form.image }}
             </div>
 
             <!-- Buttons -->

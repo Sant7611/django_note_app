@@ -23,7 +23,7 @@ def notes_delete(request, pk):
 def notes_create(request):
     form = NoteForm()
     if request.method == 'POST':
-        form = NoteForm(request.POST)
+        form = NoteForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'The note has been successfully created')
@@ -36,7 +36,7 @@ def notes_create(request):
 def notes_edit(request,pk):
     note = get_object_or_404(Note, pk = pk)
     if request.method == 'POST':
-        form = NoteForm(request.POST, instance=note)
+        form = NoteForm(request.POST, request.FILES, instance=note)
         if form.is_valid():
             form.save()
             messages.success(request,'The note has been updated')

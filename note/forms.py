@@ -6,7 +6,7 @@ class NoteForm(forms.ModelForm):
 
     class Meta:
         model = Note
-        fields = ['title', 'description']
+        fields = ['title', 'description', 'image']
 
         widgets = {
             'title': forms.TextInput(
